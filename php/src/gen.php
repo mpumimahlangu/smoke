@@ -49,12 +49,7 @@
             $selected_db = $client->smoke;
             $phone_number_collection = $selected_db->phone_number_collection;
             
-            $insert_result = $phone_number_collection->insertOne([
-                ['name' => 'Mpumi', 'surname' => 'Mahlangu', 'age' => '40']
-            ]);
-
-            //gives you the number of inserted records
-            $insert_result->getInsertedCount(); */
+            */
             
             $phoneUtil = \libphonenumber\PhoneNumberUtil::getInstance();
             $country_regions = $phoneUtil->getSupportedRegions();
@@ -114,12 +109,12 @@
                             $region_code = $phoneUtil->getCountryCodeForRegion($country_code);
                             $isValid = $phoneUtil->isValidNumberForRegion($phoneNumberObject, $country_code);
                             echo "<td>". json_encode($isValid)."</td>";
-                            if (json_encode($isValid) == true){
+                            /*if (json_encode($isValid) == true){
                                 $insert_result = $phone_number_collection->insertOne([
                                     ['phone_number' => $phone_number, 'country_code' => $country_code, 'phone_number_type' => $phone_number_type,
                                     'correct_format' => 'Unknown', 'isValid' => $isValid]
                                 ]);
-                            }
+                            }*/
                             echo "</tr>";
                         }
                     echo "
@@ -136,6 +131,6 @@
                 for ($i = 0; $i < $numberLength; $i++) {
                     $randomNumber .= 1;
                 }
-        }// roy@smokeci.com.
+        }
     }
 ?>
