@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  php-apache-environment:
+    container_name: phone_gen
+    image: php:8.0-apache
+    volumes:
+      - ./php/src:/var/www/html/
+    ports:
+      - 8080:80
+      
+  mongo: 
+    image: mongo:4.2.16-bionic
+    restart: always
+    container_name: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_DATABASE: smoke
+      MONGO_INITDB_ROOT_USERNAME: UserMpumi
+      MONGO_INITDB_ROOT_PASSWORD: Mpumi112233
+    volumes:
+      - ./db-data/mongo/:/data/db/
+    
+    
